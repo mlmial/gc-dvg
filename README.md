@@ -1,6 +1,6 @@
 # Granger-Causality Analysis of Defective Viral Genomes (DVGs)
 
-This repository contains the analysis pipeline for identifying DVGs that Granger-cause changes in viral cultivation metrics. The analysis applies Granger-causality testing, negative controls, OLS forecasting validation, and DVG ranking.
+This repository contains the analysis pipeline for identifying DVGs that are Granger-causality related to virus cultivation metrics like the infectious virus concentration. The analysis applies Granger-causality testing, creates negative controls, OLS forecasting validation, and DVG ranking.
 
 ## Notebooks
 
@@ -20,10 +20,5 @@ conda env create -f environment.yaml
 conda activate gc_dvg
 ```
 
-## Running the Notebooks
 
-```bash
-jupyter notebook
-```
-
-Then open and run the notebooks in order (01 through 04).
+Then open and run the notebooks in order with Jupyter Notebook (01 through 04).
