@@ -52,7 +52,7 @@ def long_readcounts(cutoff=0, frac=False):
                                             long_pelz_id2timepoint,
                                             cutoff=cutoff)
     long_readcounts.drop(columns=['PN31.1'], inplace=True)
-    long_readcounts = long_readcounts[long_readcounts[long_readcounts.columns[4:]].max(axis=1) > cutoff]
+    long_readcounts = long_readcounts[long_readcounts[long_readcounts.columns[4:]].max(axis=1) >= cutoff]
     # rename column
     long_readcounts = long_readcounts.rename(columns={'Unique Keys':'key', 'Segment':'segment',
                                                       'Start':'start', 'End':'end'})
@@ -67,7 +67,7 @@ def short_readcounts(cutoff=0, frac=False):
                                             long_pelz_id2timepoint,
                                             cutoff=cutoff)
     long_readcounts.drop(columns=['PN31.1'], inplace=True)
-    long_readcounts = long_readcounts[long_readcounts[long_readcounts.columns[4:]].max(axis=1) > cutoff]
+    long_readcounts = long_readcounts[long_readcounts[long_readcounts.columns[4:]].max(axis=1) >= cutoff]
     # rename column
     long_readcounts = long_readcounts.rename(columns={'Unique Keys':'key', 'Segment':'segment',
                                                       'Start':'start', 'End':'end'})
