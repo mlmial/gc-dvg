@@ -9,7 +9,24 @@ The analysis is split across four notebooks, intended to be run in order:
 1. **01_granger_causality_analysis_dvg_classification.ipynb** — Granger-causality testing between DVG and cultivation time series, including stationarity checks, model fitting, and candidate classification.
 2. **02_granger_causality_analysis_negative_control.ipynb** — Negative control analysis using randomized time series to validate the Granger-causality results.
 3. **03_validation_ols_forecasting.ipynb** — Rolling-window OLS forecasting to independently validate identified causal DVG candidates.
-4. **04_rank_dvgs.ipynb** — Ranking of DVG candidates by MAE and SSR metrics.
+4. **04_create_dvg_ranks.ipynb** — Ranking of DVG candidates by MAE and SSR metrics.
+
+Each notebook writes every table and figure it exports below its own
+`output_prefix`, and reads the outputs of the notebooks before it.
+
+## Shared code
+
+Routines used by more than one notebook live in `utils/` rather than being
+copy-pasted between them:
+
+| Module | Contents |
+| --- | --- |
+| `utils/granger.py` | stationarity transform, Granger-causality matrix, Benjamini-Hochberg correction, label classification, summary table |
+| `utils/granger_prediction.py` | restricted/full OLS prediction per candidate and the per-candidate fit plots |
+| `utils/metrics.py` | forecast-error metrics (MAE/MAPE/DTW/SSR variants) and the statistical tests and effect sizes |
+| `utils/plotting.py` | colour conventions per Granger label, significance brackets, the two swarmplot builders |
+| `utils/ols_forecasting.py` | rolling-window OLS forecasting used by notebook 03 |
+| `pelz_datasets.py` | loading of the Pelz 2021 read counts and cultivation values |
 
 ## Setup
 
@@ -19,7 +36,19 @@ Create and activate the conda environment:
 conda env create -f environment.yaml
 conda activate gc_dvg
 ```
+## Environment
 
+All analyses were run in Jupyter notebooks under Python 3.9 (conda environment
+`gc_dvg`, see `environment.yml`) on x86_64 Linux (openSUSE Tumbleweed,
+kernel 6.10.3).
+
+The environment file and notebooks also build and run on macOS (Intel),
+though the results reported in the main manuscript were produced on Linux.
+
+​```bash
+conda env create -f environment.yml
+conda activate gc_dvg
+​```
 
 Then open and run the notebooks in order with Jupyter Notebook (01 through 04).
 
