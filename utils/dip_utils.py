@@ -58,13 +58,12 @@ def load_pelz_tsv_file(tsv_filepath, id2timepoint_dct, cutoff=0):
     for tp in id2timepoint_dct.values():
         new_df[tp] = df[tp]
         
-    if cutoff > 0:
-        drop_rows = []
-        for i,row in new_df.iterrows():
-            readcounts = row[tp_start_index:]
-            if not any(x >= cutoff for x in readcounts):
-                drop_rows.append(i)
-        new_df = new_df.drop(drop_rows)
+    drop_rows = []
+    for i,row in new_df.iterrows():
+        readcounts = row[tp_start_index:]
+        if not any(x >= cutoff for x in readcounts):
+            drop_rows.append(i)
+    new_df = new_df.drop(drop_rows)
     return new_df
 
 def calculate_fractional_readcounts(df, timepoint_start=4):
