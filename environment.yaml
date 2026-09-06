@@ -1,6 +1,5 @@
 name: gc_dvg
 channels:
-  - defaults
   - conda-forge
   - bioconda
 dependencies:
