@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+
+# datasets and generated analysis outputs are kept out of the repo
+data/
