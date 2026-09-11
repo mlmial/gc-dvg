@@ -16,8 +16,7 @@ Each notebook writes every table and figure it exports below its own
 
 ## Shared code
 
-Routines used by more than one notebook live in `utils/` rather than being
-copy-pasted between them:
+Routines used by more than one notebook live in `utils/` to reduce redundancy:
 
 | Module | Contents |
 | --- | --- |
@@ -38,7 +37,7 @@ conda activate gc_dvg
 ```
 ## Environment
 
-All analyses were run in Jupyter notebooks under Python 3.9 (conda environment
+All analyses were run in Jupyter notebooks under Python 3.11 (conda environment
 `gc_dvg`, see `environment.yml`) on x86_64 Linux (openSUSE Tumbleweed,
 kernel 6.10.3).
 

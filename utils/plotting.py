@@ -334,7 +334,7 @@ def make_performance_swarmplot_with_stats(
                     continue
                 p = stats_mat.loc[a, b]
                 try:
-                    show = np.isfinite(p) and (p < 1.0)   # print bracket for every real pair
+                    show = np.isfinite(p) and (p <= 1.0)   # print bracket for every real pair
                     bold = np.isfinite(p) and (p < alpha) # bold only when significant
                 except Exception:
                     show = bold = False
