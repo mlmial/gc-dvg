@@ -5,7 +5,7 @@ with open(f'{datasets_path}/pelz_2021/pelz_timepoint_dct_data.tsv','r') as f:
     lines = f.readlines()
     pelz_id2timepoint = {k:f'PN{k.split("-")[-1]}'.replace('Saat','6') for k in lines[0].strip().split('\t')}
 
-with open(f'{datasets_path}/pelz_2021_long/long_pelz_timepoint_dct_data.tsv','r') as f:
+with open(f'{datasets_path}/pelz_2021/long_pelz_timepoint_dct_data.tsv','r') as f:
     lines = f.readlines()
     long_pelz_id2timepoint = {k:f'PN{k.split("_")[-1]}'.replace('II','31.1') for k in lines[0].strip().split('\t')}
     long_pelz_id2timepoint['VB3_Saat_CGGACAAC-TCCGGATT_24'] = 'PN6'

@@ -5,7 +5,7 @@ import pandas as pd
 datasets_dir = 'data/datasets'
 
 # cultivation values
-def pelz_cultivation_values(xlsx_filepath='data/datasets/pelz_2021_long/SC3 SC_ECACC_summary.xlsx',
+def pelz_cultivation_values(xlsx_filepath='data/datasets/pelz_2021/SC3 SC_ECACC_summary.xlsx',
                             sheet_name='General Parameters',
                             h=10,
                             cultivation_value_columns=['#','Time p.i.1','HA','HA titer', 'Plaque Assay','TCID50' ,'vRNA'],
@@ -48,7 +48,7 @@ def split_df_by_segment(df, segment_col='segment'):
 # Long Pelz readcounts
 
 def long_readcounts(cutoff=0, frac=False):
-    long_readcounts = du.load_pelz_tsv_file(f'{datasets_dir}/pelz_2021_long/compMatrix_exp2_edited_raw.tsv',
+    long_readcounts = du.load_pelz_tsv_file(f'{datasets_dir}/pelz_2021/compMatrix_exp2_edited_raw.tsv',
                                             long_pelz_id2timepoint,
                                             cutoff=cutoff)
     long_readcounts.drop(columns=['PN31.1'], inplace=True)
@@ -63,7 +63,7 @@ def long_readcounts(cutoff=0, frac=False):
     return long_readcounts
 
 def short_readcounts(cutoff=0, frac=False):
-    long_readcounts = du.load_pelz_tsv_file(f'{datasets_dir}/pelz_2021_long/compMatrix_exp2_edited_raw.tsv',
+    long_readcounts = du.load_pelz_tsv_file(f'{datasets_dir}/pelz_2021/compMatrix_exp2_edited_raw.tsv',
                                             long_pelz_id2timepoint,
                                             cutoff=cutoff)
     long_readcounts.drop(columns=['PN31.1'], inplace=True)
